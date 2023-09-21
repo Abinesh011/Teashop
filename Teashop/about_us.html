@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>About us</title>
+    <style>
+      .dropbox {
+          width: 350px;
+          height: 40px;
+          padding: 15px;
+          border: 1px solid #292828;
+      }
+ 
+      h1 {
+          color: green;
+      }
+      @keyframes color {
+  0%   { background: #33CCCC; }
+  20%  { background: #33CC36; }
+  40%  { background: #B8CC33; }
+  60%  { background: #FCCA00; }
+  80%  { background: #33CC36; }
+  100% { background: #33CCCC; }
+}
+
+body {
+  background: #33CCCC; /* Fallback */
+  animation: color 9s infinite linear;
+  text-align: center;
+  padding: 2em;
+}
+    </style>
+    <script>
+      function droppoint(event) {
+          var data = event.dataTransfer.getData("Text");
+          event.target.appendChild(document.getElementById(data));
+          event.preventDefault();
+      }
+ 
+      function allowDropOption(event) {
+          event.preventDefault();
+      }
+ 
+      function dragpoint(event) {
+          event.dataTransfer.setData("Text", event.target.id);
+      }
+    </script>
+    <script>
+      function clickCounter() {
+        if (typeof(Storage) !== "undefined") {
+          if (sessionStorage.clickcount) {
+            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+          } else {
+            sessionStorage.clickcount = 1;
+          }
+          document.getElementById("result").innerHTML = "You have clicked the button " + sessionStorage.clickcount + " time(s) in this session.";
+        } else {
+          document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+        }
+      }
+      </script>
+    </head>
+    <body>
+        <canvas id="m1" width="175" height="75"   style="border:2px solid blue"></canvas>
+        <h1>Welcome To Tea kadai</h1>
+        <div>
+        <pre style="font-size: xx-large; color: blueviolet;">
+        Tea Kadai is a professional ecommerce platform.
+        Here we wil provide you only intresting content,
+        which you like very much.we're dedicated to
+        providing you the best of Ecomerce,with a focus 
+        on dependability and shop.We're working to turn 
+        our passion for Ecomerce into a booming online
+        website.We hope you enjoy our ecomerce as much 
+        as we enjoy offering them to you.
+
+        I will keep posting more important posts on my
+        websites for all of you.please give your supporte
+        and love.
+        
+
+        </pre>
+        </div>
+        
+        
+
+        <p>Click the button to get your coordinates.</p>
+
+        <button style="padding-left: 10px;padding-right: 10px;padding-top: 10px;padding-bottom: 10px;background-color: #292828;" onclick="getLocation()">Try It</button>
+
+        <p id="demo"></p>
+
+        <p><button onclick="clickCounter()" type="button">Click me!</button></p>
+        <div id="result"></div>
+        <p>Click the button to see the counter increase.</p>
+
+        <center>
+          
+          
+          <div class="dropbox"
+               ondrop="droppoint(event)"
+               ondragover="allowDropOption(event)">
+            </div>
+          <p id="drag1" style="font-size: x-large;"
+             draggable="true"
+             ondragstart="dragpoint(event)">
+         Thank you,Visit Again.
+            </p>
+      </center>
+      <a href="./Homepage_new.html"><button style="background-color: black;color: white;">BACK</button></a>
+        
+    </body>
+    <script>
+        var c=document.getElementById("m1");
+        var ctx=c.getContext("2d");
+        ctx.font="30px Arial " ;
+        ctx.strokeText("ABOUT US",10,50);
+        </script>
+<script>       
+ var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+</script>
+</html>

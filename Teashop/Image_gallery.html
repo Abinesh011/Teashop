@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Image gallery</title>
+        <link rel="stylesheet" href="photogallery.css">
+        
+    </head>
+    <body>
+        <a href="./Homepage_new.html"><button class="bt1">BACK</button></a>
+        <h1 style="text-align: center;">OUR PRODUCTS</h1>
+        <div class="container">
+            <div class="gallery">
+                <a href="./breads.jpg" data-lightbox="modles" data-title="Bread">
+                <img src="./breads.jpg">
+                </a>
+                <a href="./chocolates.jpg" data-lightbox="modles" data-title="chocolates">
+                <img src="./chocolates.jpg">
+                </a>
+                <a href="./tea.jpg" data-lightbox="modles" data-title="Tea">
+                <img src="./tea.jpg">
+                </a>
+                <a href="./coffee.jpg" data-lightbox="modles" data-title="Coffee">
+                <img src="./coffee.jpg">
+                </a>
+                <a href="./pani-puri.jpg" data-lightbox="modles" data-title="Pani_Puri">
+                <img src="./pani-puri.jpg">
+                </a>
+                <a href="./juice.jpg" data-lightbox="modles" data-title="Juice">
+                 <img src="./juice.jpg">
+                </a>
+
+               <a href="./teapots.jpg" data-lightbox="modles" data-title="Teapots">
+                 <img src="./teapots.jpg">
+                </a>
+                <a href="./snack.jpg" data-lightbox="modles" data-title="Snack">
+                <img src="./snack.jpg">
+                </a>
+                
+            </div>
+        </div>
+        <script src="photogallery-plus-jquery.js"></script>
+    </body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: flex;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .container
+        {
+            width: 100%;
+            min-height: 100vh;
+            display:inline-block;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 8%;
+        }
+        .gallery
+        {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
+            grid-gap:30px;
+        }
+        .gallery img{
+            width: 100;
+        }
+        .bt1
+        {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 20x;
+            padding-right: 20px;
+            background-color: black;
+            padding: 10px;
+            color: white;
+        }
+    </style>
+</html>
